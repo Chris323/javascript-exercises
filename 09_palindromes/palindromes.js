@@ -1,3 +1,7 @@
+function remove(str) { 
+    return str.replace(/[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g, ''); 
+} 
+
 const palindromes = function (input) {
   if (input.length === 0) {
     return false;
@@ -5,7 +9,8 @@ const palindromes = function (input) {
   if (input.length === 1) {
     return true;
   }
-  const noSpaceWord = input.split("");
+  const noPunctuation = remove(input.toLowerCase());
+  const noSpaceWord = noPunctuation.split("");
   let left = 0;
   let right = noSpaceWord.length - 1;
 
@@ -26,8 +31,8 @@ const palindromes = function (input) {
     }
 
     if (noSpaceWord[left] != noSpaceWord[right]) {
-        console.log(noSpaceWord[left]);
-        console.log(noSpaceWord[right]);
+        //console.log(noSpaceWord[left]);
+        //console.log(noSpaceWord[right]);
       return false;
     }
 
